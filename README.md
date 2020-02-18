@@ -2,27 +2,51 @@
 WebComponents based on Shighl https://github.com/scenaristeur/shighl
 
 # How to
+- shighl-elements are in /dist/window
+- vendor library are in /dist/vendor
+
+## basic shighl-elements
 ```
 <!doctype html>
 <html>
 <head>
-  <!-- Polyfills only needed for Firefox and Edge. -->
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
-  <script src="./vendor/solid-auth-client.bundle.js"></script>
-  <script src="./vendor/solid-query-ldflex.bundle.js"></script>
-  <script src="./vendor/shighl.bundle.js"></script>
-  <body>
-    <script>    const sh = new Shighl()
-    console.log(sh)</script>
-    <shighl-login mood="great"></shighl-login>
-     <script src="./elements/shighl-login.js" type="module"></script>
-  </body>
-  </html>
+<!-- Polyfills only needed for Firefox and Edge. -->
+<script src="./vendor/webcomponents-bundle.js"></script>
+<script src="./vendor/solid-auth-client.bundle.js"></script>
+<script src="./vendor/solid-query-ldflex.bundle.js"></script>
+<script src="./vendor/shighl.bundle.js"></script>
+<body>
+<shighl-login mood="great"></shighl-login>
+<script src="./window/shighl-login.js" type="module"></script>
+</body>
+</html>
+```
+
+## or shighl-elements with bootstrap css
+```
+<!doctype html>
+<html>
+<head>
+<!-- Polyfills only needed for Firefox and Edge. -->
+<script src="./vendor/webcomponents-bundle.js"></script>
+<script src="./vendor/solid-auth-client.bundle.js"></script>
+<script src="./vendor/solid-query-ldflex.bundle.js"></script>
+<script src="./vendor/shighl.bundle.js"></script>
+<body>
+<shighl-login-bootstrap mood="great"></shighl-login-bootstrap>
+<script src="./window/shighl-login-bootstrap.js" type="module"></script>
+</body>
+</html>
 ```
 
 
 # Elements
 - [x] shighl-element
+
+
+
+
+
 
 
 # make a gh-pages branches
@@ -35,5 +59,6 @@ git add dist -f && git commit -m "Initial dist subtree commit"
 ```
 - build & publish to gh-pages
 ```
-npm run build && git subtree push --prefix dist origin gh-pages
+npm run build &&
+git subtree push --prefix dist origin gh-pages
 ```

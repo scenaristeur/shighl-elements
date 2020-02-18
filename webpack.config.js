@@ -9,6 +9,7 @@ const common = {
     //  "app-base": './src/base/app-element.js',
     //  "app-api": './src/api/app-api.js',
     "shighl-login": './src/shighl-login.js',
+    "shighl-login-bootstrap": './src/shighl-login-bootstrap.js',
     /*  "banner-element": './src/hola/banner-element.js',
     "notes-element": './src/hola/notes-element.js',
     "inbox-element": './src/hola/inbox-element.js',
@@ -68,7 +69,7 @@ const window = {
     rules: [
       {
         test: /\.js$/,
-      //  loader: 'babel-loader',
+        //  loader: 'babel-loader',
         exclude: /node_modules/,
       },
     ],
