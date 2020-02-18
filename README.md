@@ -24,4 +24,16 @@ WebComponents based on Shighl https://github.com/scenaristeur/shighl
 # Elements
 - [x] shighl-element
 
-#
+
+# make a gh-pages branches
+https://stackoverflow.com/questions/36782467/set-subdirectory-as-website-root-on-github-pages
+
+## create subbranch with dist folder
+- comment the dist folder in the .gitignore file
+```
+git add dist -f && git commit -m "Initial dist subtree commit"
+```
+- build & publish to gh-pages
+```
+npm run build && git subtree push --prefix dist origin gh-pages
+```
