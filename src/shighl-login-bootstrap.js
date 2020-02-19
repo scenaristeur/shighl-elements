@@ -20,13 +20,17 @@ class ShighlLoginBootStrap extends LitElement {
     return html`
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/fontawesome/css/all.css" rel="stylesheet">
-
+    <div title="${this.webId}">
     ${this.webId == null ?
-      html`<button  type="button" class="btn btn-primary" @click="${this.login}">Login</button>`
+      html`<button type="button" class="btn btn-primary" @click="${this.login}">Login</button>`
       :html`
-      ${this.webId}<br>
-      <button  type="button" class="btn btn-primary" @click="${this.logout}">Logout</button>
+      <button type="button" class="btn btn-primary" @click="${this.logout}">
+      <slot name="before"></slot>
+      Logout
+      <slot name="after"></slot>
+      </button>
       `}
+      </div>
       `;
     }
 

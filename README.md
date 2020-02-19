@@ -44,10 +44,17 @@ WebComponents based on Shighl https://github.com/scenaristeur/shighl
 - [x] shighl-element
 
 
+# Is it better to import in webcomponent or in html ?
+const sh = new Shighl()
+in webComponent with the import or in html file ?
+```
+<script src="./vendor/shighl.bundle.js"></script>
+<shighl-login></shighl-login>
+<script src="./window/shighl-login.js" type="module"></script>
+```
 
-
-
-
+# TODO externalize lit-element
+https://github.com/Polymer/lit-element/issues/253
 
 # make a gh-pages branches
 https://stackoverflow.com/questions/36782467/set-subdirectory-as-website-root-on-github-pages
