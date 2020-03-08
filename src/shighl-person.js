@@ -40,7 +40,7 @@ class ShighlPerson extends LitElement {
   <small class="text-muted">${this.webId}</small>
   </div>
   </div>
-  </div
+  </div>
 
   `;
 }
