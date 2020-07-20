@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Polyfills only needed for Firefox and Edge. -->
+  <script src="./vendor/webcomponents-bundle.js"></script>
+  <script src="./vendor/solid-auth-client.bundle.js"></script>
+  <script src="./vendor/solid-query-ldflex.bundle.js"></script>
+  <link href="css/fontawesome/css/all.css" rel="stylesheet">
+  <body>
+    <!--workspace="default" only default, must implement ask, pod_public, browse, remote, pod_private, -->
+    <shighl-crud
+    workspace="default"
+    shape_url="https://holacratie.solid.community/public/Schema/todo.shex"
+    ></shighl-crud>
+    <script src="./window/shighl-crud.js" type="module"></script>
+  </body>
+  </html>
