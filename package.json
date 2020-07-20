@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "dev": "webpack-dev-server -d --hot --config webpack.config.js --watch",
     "build": "webpack"
   },
   "repository": {
@@ -20,25 +20,29 @@
   },
   "homepage": "https://github.com/scenaristeur/shighl-elements#readme",
   "dependencies": {
+    "@inrupt/solid-sdk-forms": "^0.1.1",
+    "@shexjs/core": "^1.0.0-alpha.9",
+    "@shexjs/parser": "^1.0.0-alpha.9",
+    "shex": "^0.9.2",
     "shighl": "github:scenaristeur/shighl"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/register": "^7.8.3",
-    "@babel/runtime": "^7.8.4",
-    "@solid/query-ldflex": "^2.9.0",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "@babel/runtime": "^7.10.5",
+    "@solid/query-ldflex": "^2.11.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "core-js": "^3.6.1",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
     "debug": "^4.1.1",
-    "lit-element": "^2.2.1",
-    "regenerator-runtime": "^0.13.3",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "lit-element": "^2.3.1",
+    "regenerator-runtime": "^0.13.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

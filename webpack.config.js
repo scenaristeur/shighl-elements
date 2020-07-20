@@ -14,6 +14,11 @@ const common = {
     "shighl-login-icon": './src/shighl-login-icon.js',
     "shighl-contacts": './src/shighl-contacts.js',
     "shighl-person": './src/shighl-person.js',
+    "shighl-crud": './src/shighl-crud.js',
+    "shighl-create": './src/crud/shighl-create.js',
+    "shighl-read": './src/crud/shighl-read.js',
+    "shighl-update": './src/crud/shighl-update.js',
+    "shighl-delete": './src/crud/shighl-delete.js',
     /*  "banner-element": './src/hola/banner-element.js',
     "notes-element": './src/hola/notes-element.js',
     "inbox-element": './src/hola/inbox-element.js',
@@ -86,6 +91,7 @@ const window = {
 const node = {
   ...common,
   name: 'node',
+
   output: {
     ...common.output,
     path: path.resolve(__dirname, 'dist', 'node'),
