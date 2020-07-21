@@ -8,7 +8,8 @@ class ShighlRead extends LitElement {
       mood: {type: String},
       webId: {type: String},
       pod: {type: Object},
-      friends: {type: Array},
+      shape_url: {type: String},
+      workspace: {type: String},
     }
   }
 
@@ -18,7 +19,6 @@ class ShighlRead extends LitElement {
     const sh = new Shighl()
     this.session = new sh.session()
     this.pod = new sh.pod()
-    this.friends = []
   }
 
 
@@ -30,32 +30,34 @@ class ShighlRead extends LitElement {
     <div class="container">
 
     <div class="card">
-    Read
+    Read a ${this.shape_url} <br>
+    at ${this.workspace}
+
     </div>
 
 
-      </div>
-      `;
-    }
-
-
-
-    firstUpdated(){
-      var self = this
-      this.session.track(async function(webId){
-        self.webId = webId
-        self.pod.webId = webId
-        if (webId != null){
-          self.friends = await self.pod.friends
-        }else{
-          self.friends = []
-        }
-      })
-    }
-
-
-
-
+    </div>
+    `;
   }
 
-  customElements.define('shighl-read', ShighlRead);
+
+
+  firstUpdated(){
+    var self = this
+    this.session.track(async function(webId){
+      self.webId = webId
+      self.pod.webId = webId
+      if (webId != null){
+        self.friends = await self.pod.friends
+      }else{
+        self.friends = []
+      }
+    })
+  }
+
+
+
+
+}
+
+customElements.define('shighl-read', ShighlRead);

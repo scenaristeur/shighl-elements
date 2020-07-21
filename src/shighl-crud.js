@@ -9,6 +9,7 @@ import './crud/shighl-update.js'
 import './crud/shighl-delete.js'
 
 //import { ShexFormModel, FormModel } from '@inrupt/solid-sdk-forms';
+//import { ShexFormModel } from '../src/classes/shex-form-model'
 
 
 class ShighlCrud extends LitElement {
@@ -30,6 +31,7 @@ class ShighlCrud extends LitElement {
     this.pod = new sh.pod()
     console.log("POD",this.pod)
     this.workspace = "public"
+    this.shape_url = "https://holacratie.solid.community/public/Schema/todo.shex"
   }
 
 
@@ -46,22 +48,22 @@ class ShighlCrud extends LitElement {
     <div class="card">
     Create
 
-    <shighl-create shape_url="${this.shape_url}"></shighl-create>
+    <shighl-create shape_url="${this.shape_url}" workspace="${this.workspace}"></shighl-create>
     </div>
 
     <div class="card">
     Read
-    <shighl-read></shighl-read>
+    <shighl-read shape_url="${this.shape_url}" workspace="${this.workspace}"></shighl-read>
     </div>
 
     <div class="card">
     Update
-    <shighl-update></shighl-update>
+    <shighl-update shape_url="${this.shape_url}" workspace="${this.workspace}"></shighl-update>
     </div>
 
     <div class="card">
     Delete
-    <shighl-delete></shighl-delete>
+    <shighl-delete shape_url="${this.shape_url}" workspace="${this.workspace}"></shighl-delete>
     </div>
 
     </div>
@@ -78,8 +80,8 @@ class ShighlCrud extends LitElement {
       if (webId != null){
         if (self.workspace == "default"){
           let st = await self.pod.storage
-          self.pod.st = `${st+"public/"}`
-          console.log(self.pod)
+          self.workspace = `${st+"public/"}`
+          console.log(self.workspace)
         }else{
           console.log("Must implement a way to change workspace")
         }
@@ -88,14 +90,47 @@ class ShighlCrud extends LitElement {
       }
     })
 
-  /*  const formModel = new FormModel();
+    console.log("SolidForms",solidForms)
+
+    const formModel = new solidForms.FormModel();
     console.log(formModel)
-    const schema = await formModel.parseSchema(schemaUrl);
-    console.log(schema)
-    const shexClass = new ShexFormModel(schema);
-    console.log(shexClass)
-    const formModelOutput = shexClass.convert();
-    console.log(formModelOutput)*/
+//https://github.com/inrupt/solid-sdk-forms/blob/develop/test/shex-form-model.test.ts
+    shexLoader.load([this.shape_url], [], [], []).then(loaded => {
+       if (loaded.schema){
+         console.log("LOADED",loaded.schema)
+         console.log(loaded.schema)
+         loaded.schema.start = "https://holacratie.solid.community/public/Todo"
+         const shexClass = new solidForms.ShexFormModel(loaded.schema);
+         console.log("classe",shexClass)
+         const formModelOutput = shexClass.convert();
+         console.log("form",formModelOutput)
+         //  app.schema = JSON.stringify(loaded.schema);
+        // app.parseSchema(loaded.schema)
+         //  console.log(Object.entries(loaded.schema.shapes))
+       }
+     }, err => {
+       //  log(err, "ERROR loadShex")
+       console.log("erreur ",err)
+       alert(err.message)
+     }
+   );
+
+const url = 'https://shexshapes.inrupt.net/public/notifocation.shex'
+const instance = new solidForms.FormModel(url)
+    const fileExt = instance.schemaType(url)
+    console.log("inst",instance)
+    const shexClass2 = new solidForms.ShexFormModel(instance);
+    console.log("classe",shexClass2)
+    const formModelOutput2 = shexClass2.convert();
+    console.log("form",formModelOutput2)
+  //  const schema = await formModel.parseShEx("http://shex.io/examples/Issue.shex");
+  /*const schema = {
+  type: 'Schema',
+  start: 'hola:Todo',
+  _prefixes: { acl: 'http://www.w3.org/ns/auth/acl#', hola: "https://holacratie.solid.community/public/" },
+  shapes: [{ id: 'https://holacratie.solid.community/public/Schema/todo.shex', type: 'Shape' }]
+}*/
+
   }
 
 

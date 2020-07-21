@@ -8,7 +8,8 @@ class ShighlCreate extends LitElement {
       mood: {type: String},
       webId: {type: String},
       pod: {type: Object},
-      shape_url: {type: String}
+      shape_url: {type: String},
+      workspace: {type: String}
     }
   }
 
@@ -19,6 +20,7 @@ class ShighlCreate extends LitElement {
     this.session = new sh.session()
     this.pod = new sh.pod()
     this.shape_url = "boo"
+    this.workspace = "default"
   }
 
 
@@ -30,7 +32,7 @@ class ShighlCreate extends LitElement {
     <div class="container">
 
     <div class="card">
-    Create a ${this.shape_url}
+    Create a ${this.shape_url} at ${this.workspace}
     </div>
 
 
